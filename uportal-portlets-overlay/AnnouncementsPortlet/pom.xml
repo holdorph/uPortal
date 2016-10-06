@@ -32,7 +32,10 @@
     <packaging>war</packaging>
 
     <name>Announcements Portlet</name>
-    <description>Overlay on Announcements Portlet.</description>
+
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
 
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->

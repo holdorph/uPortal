@@ -34,6 +34,10 @@
     <name>Email Preview Portlet</name>
     <description>Overlay on Email Preview Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

@@ -79,7 +79,7 @@ public class PortletDefinitionImporterExporter
         implements IPortletPublishingService {
 
 
-    private PortletPortalDataType portletPortalDataType;
+    private PortletPortalDataType portletPortalDataType = new PortletPortalDataType();
     private IPortletTypeRegistry portletTypeRegistry;
     private IPortletDefinitionDao portletDefinitionDao;
     private IPortletCategoryRegistry portletCategoryRegistry;
@@ -97,7 +97,7 @@ public class PortletDefinitionImporterExporter
 		this.errorOnChannel = errorOnChannel;
 	}
 
-	@Autowired
+	//Autowired
     public void setPortletPortalDataType(PortletPortalDataType portletPortalDataType) {
         this.portletPortalDataType = portletPortalDataType;
     }

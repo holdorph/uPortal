@@ -34,6 +34,10 @@
     <name>Functional Tests Portlet</name>
     <description>Overlay on Functional Tests Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

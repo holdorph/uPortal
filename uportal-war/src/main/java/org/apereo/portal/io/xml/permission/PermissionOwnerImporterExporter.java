@@ -49,7 +49,7 @@ public class PermissionOwnerImporterExporter extends
 	private PermissionOwnerPortalDataType portalDataType;
 	private IPermissionOwnerDao permissionOwnerDao;
 	
-	@Autowired
+	//Autowired
 	public void setPortalDataType(PermissionOwnerPortalDataType portalDataType) {
 		this.portalDataType = portalDataType;
 	}

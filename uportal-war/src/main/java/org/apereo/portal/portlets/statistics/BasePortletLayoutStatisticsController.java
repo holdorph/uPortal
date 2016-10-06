@@ -58,8 +58,11 @@ public abstract class BasePortletLayoutStatisticsController<F extends BasePortle
         BaseStatisticsReportController<PortletLayoutAggregation, PortletLayoutAggregationKey,
                 PortletLayoutAggregationDiscriminator, F> {
 
-    @Autowired
+    //Autowired
     protected PortletLayoutAggregationDao<PortletLayoutAggregation> portletLayoutDao;
+    public void setPortletLayoutDao(PortletLayoutAggregationDao<PortletLayoutAggregation> p) {
+        portletLayoutDao = p;
+    }
 
     @Autowired
     protected AggregatedGroupLookupDao aggregatedGroupLookupDao;

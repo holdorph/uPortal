@@ -19,13 +19,24 @@
 package org.apereo.portal.portlet.rendering.worker;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
+
+import org.springframework.beans.factory.InitializingBean;
+//import org.springframework.orm.jpa.DataAccessUtils;
+import org.springframework.orm.jpa.DefaultJpaDialect;
+import org.springframework.orm.jpa.EntityManagerFactoryAccessor;
+import org.springframework.orm.jpa.EntityManagerFactoryInfo;
 import org.springframework.orm.jpa.EntityManagerFactoryUtils;
 import org.springframework.orm.jpa.EntityManagerHolder;
-import org.springframework.orm.jpa.JpaAccessor;
-import org.springframework.orm.jpa.JpaInterceptor;
+import org.springframework.orm.jpa.JpaDialect;
+//import org.springframework.orm.jpa.JpaAccessor;
+//import org.springframework.orm.jpa.JpaInterceptor;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 /**
@@ -36,9 +47,61 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * @version $Revision$
  * @see JpaInterceptor
  */
-public class JpaPortletExecutionInterceptor extends JpaAccessor implements IPortletExecutionInterceptor {
+public class JpaPortletExecutionInterceptor extends EntityManagerFactoryAccessor implements IPortletExecutionInterceptor,InitializingBean {
     private static final String IS_NEW = JpaPortletExecutionInterceptor.class.getName() + ".IS_NEW";
     private static final String ENTITY_MANAGER_FACTORY = JpaPortletExecutionInterceptor.class.getName() + ".ENTITY_MANAGER_FACTORY";
+    private EntityManager entityManager;private JpaDialect jpaDialect = new DefaultJpaDialect();
+    private boolean flushEager = false;
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+    
+    public void setJpaDialect(JpaDialect jpaDialect) {
+        this.jpaDialect = (jpaDialect != null ? jpaDialect : new DefaultJpaDialect());
+    }
+
+    public JpaDialect getJpaDialect() {
+        return jpaDialect;
+    }
+
+    public void setFlushEager(boolean flushEager) {
+        this.flushEager = flushEager;
+    }
+    
+    public boolean isFlushEager() {
+        return this.flushEager;
+    }
+    
+    /*
+    public RuntimeException translateIfNecessary(RuntimeException ex) {
+        return DataAccessUtils.translateIfNecessary(ex, getJpaDialect());
+    }
+    */
+
+    public void afterPropertiesSet() {
+        EntityManagerFactory emf = getEntityManagerFactory();
+        if (emf == null && getEntityManager() == null) {
+            throw new IllegalArgumentException("'entityManagerFactory' or 'entityManager' is required");
+        }
+        if (emf instanceof EntityManagerFactoryInfo) {
+            JpaDialect jpaDialect = ((EntityManagerFactoryInfo) emf).getJpaDialect();
+            if (jpaDialect != null) {
+                setJpaDialect(jpaDialect);
+            }
+        }
+    }
+
+    protected void flushIfNecessary(EntityManager em, boolean existingTransaction) throws PersistenceException {
+        if (isFlushEager()) {
+            logger.debug("Eagerly flushing JPA entity manager");
+            em.flush();
+        }
+    }
     
     @Override
     public void preExecution(HttpServletRequest request, HttpServletResponse response, IPortletExecutionContext context) {

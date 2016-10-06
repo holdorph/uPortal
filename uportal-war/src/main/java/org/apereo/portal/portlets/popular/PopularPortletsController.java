@@ -78,7 +78,7 @@ public class PopularPortletsController {
     private AggregatedGroupLookupDao aggregatedGroupLookupDao;
     private IPortletDefinitionDao portletDefinitionDao;
 
-    @Autowired
+    //Autowired
     public void setPortletDefinitionDao(IPortletDefinitionDao portletDefinitionDao) {
         this.portletDefinitionDao = portletDefinitionDao;
     }
@@ -88,7 +88,7 @@ public class PopularPortletsController {
         this.personManager = personManager;
     }
 
-    @Autowired
+    //Autowired
     public void setAggregatedGroupLookupDao(AggregatedGroupLookupDao aggregatedGroupLookupDao) {
         this.aggregatedGroupLookupDao = aggregatedGroupLookupDao;
     }
@@ -98,7 +98,7 @@ public class PopularPortletsController {
         this.portalRequestUtils = portalRequestUtils;
     }
 
-    @Autowired
+    //Autowired
     public void setPortletLayoutDao(PortletLayoutAggregationDao<PortletLayoutAggregation> portletLayoutDao) {
         this.portletLayoutDao = portletLayoutDao;
     }

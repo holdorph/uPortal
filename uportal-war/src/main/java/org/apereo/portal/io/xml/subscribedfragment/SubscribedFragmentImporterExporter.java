@@ -55,7 +55,7 @@ public class SubscribedFragmentImporterExporter extends
     private IUserIdentityStore userIdentityStore;
     private boolean errorOnMissingUser = true;
 
-    @Autowired
+    //Autowired
 	public void setSubscribedFragmentPortalDataType(SubscribedFragmentPortalDataType subscribedFragmentPortalDataType) {
         this.subscribedFragmentPortalDataType = subscribedFragmentPortalDataType;
     }

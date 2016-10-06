@@ -612,7 +612,7 @@
     <portlet>
         <portlet-name>DynamicRespondrSkin</portlet-name>
         <display-name xml:lang="en">Dynamic Respondr Skin</display-name>
-        <portlet-class>org.springframework.web.portlet.HeaderHandlingDispatcherPortlet</portlet-class>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
         <init-param>
             <name>contextConfigLocation</name>
             <value>classpath:/properties/contexts/portlet/DynamicRespondrSkin-portlet.xml</value>
@@ -1059,7 +1059,7 @@
     <portlet>
         <portlet-name>SessionTimeout</portlet-name>
         <display-name xml:lang="en">Session Timeout</display-name>
-        <portlet-class>org.springframework.web.portlet.HeaderHandlingDispatcherPortlet</portlet-class>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
         <init-param>
             <name>contextConfigLocation</name>
             <value>classpath:/properties/contexts/portlet/SessionTimeout-portlet.xml</value>

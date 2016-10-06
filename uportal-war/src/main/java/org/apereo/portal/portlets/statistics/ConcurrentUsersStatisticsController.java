@@ -66,11 +66,17 @@ public class ConcurrentUsersStatisticsController
     private static final String DATA_TABLE_RESOURCE_ID = "concurrentUserData";
     private final static String REPORT_NAME = "concurrent.users";
 
-    @Autowired
+    //Autowired
     private ConcurrentUserAggregationDao<ConcurrentUserAggregation> concurrentUserAggregationDao;
+    public void setConcurrentUserAggregationDao(ConcurrentUserAggregationDao<ConcurrentUserAggregation> dao) {
+        concurrentUserAggregationDao = dao;
+    }
 
-    @Autowired
+    //Autowired
     private AggregatedGroupLookupDao aggregatedGroupDao;
+    public void setAggregatedGroupDao(AggregatedGroupLookupDao dao) {
+        aggregatedGroupDao = dao;
+    }
 
     @RenderMapping(value="MAXIMIZED", params="report=" + REPORT_NAME)
     public String getConcurrentUserView() throws TypeMismatchException {

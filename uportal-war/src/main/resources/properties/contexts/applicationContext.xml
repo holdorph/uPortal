@@ -50,7 +50,28 @@
     <!-- TODO:  Remove! -->
     <context:component-scan base-package="org.jasig.portal">
     </context:component-scan>
+
+    <bean id="jpaPortletLayoutAggregationDao" class="org.apereo.portal.events.aggr.portletlayout.JpaPortletLayoutAggregationDao" />
+
+    <bean id="jpaLoginAggregationDao" class="org.apereo.portal.events.aggr.login.JpaLoginAggregationDao" />
+
+    <bean id="jpaConcurrentUserAggregationDao" class="org.apereo.portal.events.aggr.concuser.JpaConcurrentUserAggregationDao" />
+
+    <bean id="jpaTabRenderAggregationDao" class="org.apereo.portal.events.aggr.tabrender.JpaTabRenderAggregationDao" />
+
+    <bean id="jpaAggregatedGroupLookupDao" class="org.apereo.portal.events.aggr.groups.JpaAggregatedGroupLookupDao" />
+
+    <bean id="jpaAggregatedTabLookupDao" class="org.apereo.portal.events.aggr.tabs.JpaAggregatedTabLookupDao" />
+
+    <bean id="jpaPortletExecutionAggregationDao" class="org.apereo.portal.events.aggr.portletexec.JpaPortletExecutionAggregationDao" />
+
+    <bean id="jpaAggregatedPortletLookupDao" class="org.apereo.portal.events.aggr.portlets.JpaAggregatedPortletLookupDao" />
     
+    <bean id="jpaPortletDefinitionDao" class="org.apereo.portal.portlet.dao.jpa.JpaPortletDefinitionDao" />
+    
+    <bean id="jpaSearchRequestAggregationDao" class="org.apereo.portal.events.aggr.action.JpaSearchRequestAggregationDao" />
+    
+
     <bean id="primaryPropertyPlaceholderConfigurer" class="org.springframework.context.support.PortalPropertySourcesPlaceholderConfigurer">
         <property name="locations">
             <list>

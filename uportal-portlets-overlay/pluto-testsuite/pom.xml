@@ -34,6 +34,10 @@
     <name>Pluto Test Suite Portlet</name>
     <description>Overlay on Pluto Test Suite Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

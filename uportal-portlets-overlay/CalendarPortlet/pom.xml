@@ -45,6 +45,10 @@
         </repository>
     </repositories>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

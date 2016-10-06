@@ -67,11 +67,17 @@ public class LoginTotalsStatisticsController
     private static final String DATA_TABLE_RESOURCE_ID = "loginData";
     private final static String REPORT_NAME = "login.totals";
 
-    @Autowired
+    //Autowired
     private LoginAggregationDao<LoginAggregation> loginDao;
+    public void setLoginDao(LoginAggregationDao<LoginAggregation> dao) {
+        loginDao = dao;
+    }
 
-    @Autowired
+    //Autowired
     private AggregatedGroupLookupDao aggregatedGroupDao;
+    public void setAggregatedGroupDao(AggregatedGroupLookupDao dao) {
+        aggregatedGroupDao = dao;
+    }
 
     @RenderMapping(value="MAXIMIZED", params="report=" + REPORT_NAME)
     public String getLoginView() throws TypeMismatchException {

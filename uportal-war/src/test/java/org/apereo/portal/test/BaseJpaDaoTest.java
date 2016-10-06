@@ -41,7 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.orm.jpa.JpaInterceptor;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionOperations;
@@ -55,14 +54,14 @@ import org.springframework.transaction.support.TransactionOperations;
 public abstract class BaseJpaDaoTest {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
     
-    protected JpaInterceptor jpaInterceptor;
     protected TransactionOperations transactionOperations;
     
     
-    @Autowired
+    /*Autowired
     public final void setJpaInterceptor(JpaInterceptor jpaInterceptor) {
         this.jpaInterceptor = jpaInterceptor;
     }
+    */
 
     @Autowired
     public void setTransactionOperations(TransactionOperations transactionOperations) {
@@ -122,7 +121,10 @@ public abstract class BaseJpaDaoTest {
     @SuppressWarnings("unchecked")
     public final <T> T execute(final Callable<T> callable) {
         try {
+        /*
             return (T)this.jpaInterceptor.invoke(new MethodInvocationCallable<T>(callable));
+        */
+            return (T)(new MethodInvocationCallable<T>(callable)).proceed();
         }
         catch (Throwable e) {
             if (e instanceof RuntimeException) {

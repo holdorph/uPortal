@@ -77,15 +77,24 @@ public class PortletExecutionStatisticsController
     @Autowired
     private ReportTitleAndColumnDescriptionStrategy titleAndColumnDescriptionStrategy;
 
-    @Autowired
-    @Qualifier(value = "jpaPortletExecutionAggregationDao")
+    //Autowired
+    //Qualifier(value = "jpaPortletExecutionAggregationDao")
     private PortletExecutionAggregationDao<PortletExecutionAggregation> portletExecutionDao;
+    public void setPortletExecutionDao(PortletExecutionAggregationDao<PortletExecutionAggregation> dao) {
+        portletExecutionDao = dao;
+    }
 
-    @Autowired
+    //Autowired
     private AggregatedGroupLookupDao aggregatedGroupLookupDao;
+    public void setAggregatedGroupLookupDao(AggregatedGroupLookupDao dao) {
+        aggregatedGroupLookupDao = dao;
+    }
 
-    @Autowired
+    //Autowired
     private AggregatedPortletLookupDao aggregatedPortletLookupDao;
+    public void setAggregatedPortletLookupDao(AggregatedPortletLookupDao dao) {
+        aggregatedPortletLookupDao = dao;
+    }
 
     public void setTitleAndColumnDescriptionStrategy(ReportTitleAndColumnDescriptionStrategy titleAndColumnDescriptionStrategy) {
         this.titleAndColumnDescriptionStrategy = titleAndColumnDescriptionStrategy;

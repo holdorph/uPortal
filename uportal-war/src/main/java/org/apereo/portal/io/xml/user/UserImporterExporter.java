@@ -86,7 +86,7 @@ public class UserImporterExporter extends
 		this.userIdentityStore = userIdentityStore;
 	}
 
-	@Autowired
+	//Autowired
     public void setUserPortalDataType(UserPortalDataType userPortalDataType) {
         this.userPortalDataType = userPortalDataType;
     }

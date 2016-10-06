@@ -44,7 +44,7 @@ public class PortletTypeImporterExporter extends
 	private PortletTypePortalDataType typePortalDataType;
     private IPortletTypeRegistry portletTypeRegistry;
     
-    @Autowired
+    //Autowired
     public void setTypePortalDataType(PortletTypePortalDataType typePortalDataType) {
         this.typePortalDataType = typePortalDataType;
     }

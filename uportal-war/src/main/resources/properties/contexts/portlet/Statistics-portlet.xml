@@ -28,6 +28,32 @@
     
     <context:annotation-config/>
     <context:component-scan base-package="org.apereo.portal.portlets.statistics"/>
+
+    <bean id="portletMoveStatisticsController" class="org.apereo.portal.portlets.statistics.PortletMoveStatisticsController">
+        <property name="portletLayoutDao" ref="jpaPortletLayoutAggregationDao" />
+    </bean>
+
+    <bean name="loginTotalsStatisticsController" class="org.apereo.portal.portlets.statistics.LoginTotalsStatisticsController">
+        <property name="loginDao" ref="jpaLoginAggregationDao" />
+        <property name="aggregatedGroupDao" ref="jpaAggregatedGroupLookupDao" />
+    </bean>
+
+    <bean name="concurrentUsersStatisticsController" class="org.apereo.portal.portlets.statistics.ConcurrentUsersStatisticsController">
+        <property name="concurrentUserAggregationDao" ref="jpaConcurrentUserAggregationDao" />
+        <property name="aggregatedGroupDao" ref="jpaAggregatedGroupLookupDao" />
+    </bean>
+
+    <bean name="tabRenderStatisticsController" class="org.apereo.portal.portlets.statistics.TabRenderStatisticsController">
+        <property name="tabRenderDao" ref="jpaTabRenderAggregationDao" />
+        <property name="aggregatedGroupDao" ref="jpaAggregatedGroupLookupDao" />
+        <property name="aggregatedTabLookupDao" ref="jpaAggregatedTabLookupDao" />
+    </bean>
+
+    <bean name="portletExecutionStatisticsController" class="org.apereo.portal.portlets.statistics.PortletExecutionStatisticsController">
+        <property name="portletExecutionDao" ref="jpaPortletExecutionAggregationDao" />
+        <property name="aggregatedGroupLookupDao" ref="jpaAggregatedGroupLookupDao" />
+        <property name="aggregatedPortletLookupDao" ref="jpaAggregatedPortletLookupDao" />
+    </bean>
     
     <bean class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping">
         <property name="interceptors" ref="minimizedStateHandlerInterceptor" />

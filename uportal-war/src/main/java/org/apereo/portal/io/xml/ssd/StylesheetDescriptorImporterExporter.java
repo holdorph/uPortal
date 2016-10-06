@@ -52,7 +52,7 @@ public class StylesheetDescriptorImporterExporter extends AbstractJaxbDataHandle
     private StylesheetDescriptorPortalDataType stylesheetDescriptorPortalDataType;
     private IStylesheetDescriptorDao stylesheetDescriptorDao;
     
-    @Autowired
+    //Autowired
     public void setStylesheetDescriptorPortalDataType(StylesheetDescriptorPortalDataType stylesheetDescriptorPortalDataType) {
         this.stylesheetDescriptorPortalDataType = stylesheetDescriptorPortalDataType;
     }

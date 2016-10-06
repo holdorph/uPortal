@@ -71,7 +71,7 @@ public class EventAggregationConfigurationImporterExporter extends
         this.aggregatedGroupLookupDao = aggregatedGroupLookupDao;
     }
 
-    @Autowired
+    //Autowired
     public void setEventAggregationDataType(EventAggregationConfigurationPortalDataType eventAggregationDataType) {
         this.eventAggregationDataType = eventAggregationDataType;
     }

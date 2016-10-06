@@ -21,6 +21,9 @@ package org.apereo.portal.portlet.rendering.worker;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestAttributes;
@@ -35,6 +38,7 @@ import org.springframework.web.context.request.RequestContextHolder;
  */
 @Service("RequestContextThreadLocalPortletExecutionInterceptor")
 public class RequestContextThreadLocalPortletExecutionInterceptor extends ThreadLocalPortletExecutionInterceptor<RequestAttributes> {
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     protected RequestAttributes getThreadLocalValue(HttpServletRequest request, HttpServletResponse response,
@@ -49,6 +53,7 @@ public class RequestContextThreadLocalPortletExecutionInterceptor extends Thread
             RequestContextHolder.resetRequestAttributes();
         }
         else {
+            this.logger.error("*cris* setting request Attributes: " + value);
             RequestContextHolder.setRequestAttributes(value);
         }
     }

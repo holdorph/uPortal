@@ -80,25 +80,25 @@ public class ActivityController {
     private ConcurrentUserAggregationDao<ConcurrentUserAggregation> concurrentUserAggregationDao;
     private LoginAggregationDao<LoginAggregation> loginAggregationDao;
 
-    @Autowired
+    //Autowired
     public void setAggregatedGroupLookupDao(AggregatedGroupLookupDao aggregatedGroupLookupDao)
     {
         this.aggregatedGroupLookupDao = aggregatedGroupLookupDao;
     }
 
-    @Autowired
+    //Autowired
     public void setSearchRequestAggregationDao(SearchRequestAggregationDao<SearchRequestAggregation> searchRequestAggregationDao)
     {
         this.searchRequestAggregationDao = searchRequestAggregationDao;
     }
 
-    @Autowired
+    //Autowired
     public void setConcurrentUserAggregationDao(ConcurrentUserAggregationDao<ConcurrentUserAggregation> concurrentUserAggregationDao)
     {
         this.concurrentUserAggregationDao = concurrentUserAggregationDao;
     }
 
-    @Autowired
+    //Autowired
     public void setLoginAggregationDao(LoginAggregationDao<LoginAggregation> loginAggregationDao)
     {
         this.loginAggregationDao = loginAggregationDao;

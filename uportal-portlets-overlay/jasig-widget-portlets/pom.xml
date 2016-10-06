@@ -34,6 +34,10 @@
     <name>Jasig Widget Portlets</name>
     <description>Overlay on Jasig Widget Portlets.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

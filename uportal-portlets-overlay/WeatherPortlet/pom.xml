@@ -34,6 +34,10 @@
     <name>Weather Portlet</name>
     <description>Overlay on Weather Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

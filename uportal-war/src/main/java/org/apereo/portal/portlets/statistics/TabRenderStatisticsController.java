@@ -71,16 +71,25 @@ public class TabRenderStatisticsController extends
     @Autowired
     private ReportTitleAndColumnDescriptionStrategy titleAndColumnDescriptionStrategy;
 
-    @Autowired
-    @Qualifier(value = "jpaTabRenderAggregationDao")
+    //Autowired
+    //Qualifier(value = "jpaTabRenderAggregationDao")
     private TabRenderAggregationDao<TabRenderAggregation> tabRenderDao;
+    public void setTabRenderDao(TabRenderAggregationDao<TabRenderAggregation> dao) {
+        tabRenderDao = dao;
+    }
 
-    @Autowired
-    @Qualifier(value = "jpaAggregatedGroupLookupDao")
+    //Autowired
+    //Qualifier(value = "jpaAggregatedGroupLookupDao")
     private AggregatedGroupLookupDao aggregatedGroupDao;
+    public void setAggregatedGroupDao(AggregatedGroupLookupDao dao) {
+        aggregatedGroupDao = dao;
+    }
 
-    @Autowired
+    //Autowired
     private AggregatedTabLookupDao aggregatedTabLookupDao;
+    public void setAggregatedTabLookupDao(AggregatedTabLookupDao dao) {
+        aggregatedTabLookupDao = dao;
+    }
 
     public void setTitleAndColumnDescriptionStrategy(ReportTitleAndColumnDescriptionStrategy titleAndColumnDescriptionStrategy) {
         this.titleAndColumnDescriptionStrategy = titleAndColumnDescriptionStrategy;

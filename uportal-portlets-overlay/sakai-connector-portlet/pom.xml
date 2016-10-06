@@ -34,6 +34,10 @@
     <name>Sakai Connector Portlet</name>
     <description>Overlay on the Sakai Connector Portlet</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

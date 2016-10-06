@@ -22,7 +22,7 @@
 <!--
  | NOTE:  This file currently isn't used by anything.  It contains the pre-5.0
  | vales for audience (i.e. 'org.jasig.portal').  The 5-0 version of this
- | file is used in an 'identity' test -- meaning that you should get exactly the
+ | file is used in an 'identity' test - meaning that you should get exactly the
  | same file if you import then re-export.  That's not what we would want from
  | this file.  The import process should detect and correct the package names.
  | Re-exporting should contain the new package names.  In the future, we could

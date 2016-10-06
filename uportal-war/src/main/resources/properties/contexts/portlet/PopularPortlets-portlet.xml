@@ -28,6 +28,12 @@
            
     <context:annotation-config/>
     <context:component-scan base-package="org.apereo.portal.portlets.popular"/>
+
+    <bean name="popularPortletsController" class="org.apereo.portal.portlets.popular.PopularPortletsController">
+        <property name="portletDefinitionDao" ref="jpaPortletDefinitionDao" />
+        <property name="aggregatedGroupLookupDao" ref="jpaAggregatedGroupLookupDao" />
+        <property name="portletLayoutDao" ref="jpaPortletLayoutAggregationDao" />
+    </bean>
     
     <bean class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping">
         <property name="interceptors" ref="minimizedStateHandlerInterceptor" />

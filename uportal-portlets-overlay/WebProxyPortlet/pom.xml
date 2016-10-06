@@ -34,6 +34,10 @@
     <name>Web Proxy Portlet</name>
     <description>Overlay on Web Proxy Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

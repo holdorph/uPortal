@@ -115,10 +115,6 @@
         <property name="generateDdl" value="false" />
     </bean> 
     
-    <bean id="jpaInterceptor" class="org.springframework.orm.jpa.JpaInterceptor">
-        <property name="entityManagerFactory" ref="PortalDbEntityManagerFactory" />
-    </bean>
-
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <qualifier value="PortalDb"/>
         <property name="entityManagerFactory" ref="PortalDbEntityManagerFactory" />

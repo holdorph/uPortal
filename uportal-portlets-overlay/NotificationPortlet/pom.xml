@@ -34,6 +34,10 @@
     <name>Jasig Notification Portlet</name>
     <description>Overlay on Notification Portlet.</description>
 
+    <properties>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
     <dependencies>
         <!-- ===== Compile Time Dependencies ============================== -->
         <dependency>

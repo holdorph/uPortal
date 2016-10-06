@@ -29,6 +29,13 @@
     <context:annotation-config/>
     <context:component-scan base-package="org.apereo.portal.portlets.activity"/>
 
+    <bean name="activityController" class="org.apereo.portal.portlets.activity.ActivityController">
+        <property name="aggregatedGroupLookupDao" ref="jpaAggregatedGroupLookupDao" />
+        <property name="concurrentUserAggregationDao" ref="jpaConcurrentUserAggregationDao" />
+        <property name="searchRequestAggregationDao" ref="jpaSearchRequestAggregationDao" />
+        <property name="loginAggregationDao" ref="jpaLoginAggregationDao" />
+    </bean>
+
     <bean class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping">
         <property name="interceptors" ref="minimizedStateHandlerInterceptor" />
     </bean>

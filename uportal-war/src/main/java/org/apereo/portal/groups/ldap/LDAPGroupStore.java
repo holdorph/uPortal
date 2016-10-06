@@ -31,7 +31,7 @@ import org.apereo.portal.groups.IGroupMember;
 import org.apereo.portal.spring.locator.EntityTypesLocator;
 import org.apereo.portal.utils.ResourceLoader;
 import org.apereo.portal.utils.SmartCache;
-import org.springframework.ldap.core.LdapEncoder;
+import org.springframework.ldap.support.LdapEncoder;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

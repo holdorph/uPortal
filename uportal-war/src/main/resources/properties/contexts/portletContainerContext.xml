@@ -65,7 +65,8 @@
     </util:set>
     
     <bean id="portletContainer" class="org.apereo.portal.portlet.container.UportalPortletContainerImpl" destroy-method="destroy" init-method="init">
-        <constructor-arg value="#{servletContext.contextPath + '-PlutoPortletContainer'}" />
+        <!-- <constructor-arg value="#{servletContext.contextPath + '-PlutoPortletContainer'}" /> -->
+        <constructor-arg value="uPortal5-PlutoPortletContainer" />
         <constructor-arg>
             <!-- TODO this setup will never let the portal webapp restart without leaking memory -->
             <bean class="org.apache.pluto.container.driver.PlutoServices">

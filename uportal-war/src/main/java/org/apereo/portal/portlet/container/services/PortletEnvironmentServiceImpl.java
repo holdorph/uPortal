@@ -33,6 +33,9 @@ import javax.portlet.ResourceResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.apache.pluto.container.PortletActionResponseContext;
 import org.apache.pluto.container.PortletEnvironmentService;
 import org.apache.pluto.container.PortletEventResponseContext;
@@ -67,6 +70,7 @@ import org.springframework.stereotype.Service;
  */
 @Service("portletEnvironmentService")
 public class PortletEnvironmentServiceImpl implements PortletEnvironmentService {
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
     private PortletPreferencesFactory portletPreferencesFactory;
     private IPortletWindowRegistry portletWindowRegistry;
     private IPortalRequestUtils portalRequestUtils;
@@ -112,6 +116,15 @@ public class PortletEnvironmentServiceImpl implements PortletEnvironmentService 
     @Override
     public RenderRequest createRenderRequest(PortletRequestContext requestContext,
             PortletRenderResponseContext responseContext) {
+        // cris add debug here
+        String s = null;
+        try {
+            if (s.length() > 0) {
+                logger.error("*cris* createRenderRequest NOT NULL: " + s);
+            }
+        } catch(Throwable t) {
+            logger.error("*cris* createRenderRequest",t);
+        }
         
         return new ExtendedRenderRequestImpl(portletPreferencesFactory, requestContext, responseContext);
     }
