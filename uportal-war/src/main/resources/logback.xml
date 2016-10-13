@@ -119,11 +119,7 @@
     <appender-ref ref="TINCAN"/>
   </logger>
  
-  <!-- Debug CRIS
-  <logger name="org.springframework" additivity="false" level="DEBUG">
-    <appender-ref ref="PORTAL"/>
-  </logger>
-
+  <!-- Debug CAS Clearpass
   <logger name="org.apereo.portal.security.provider.cas" additivity="false" level="TRACE">
     <appender-ref ref="PORTAL"/>
   </logger>

@@ -279,14 +279,9 @@ public class JaxbPortalDataHandlerService implements IPortalDataHandlerService {
             try {
 
                 final IPortalDataType portalDataType = dataExporter.getPortalDataType();
+                final String typeId = portalDataType.getTypeId();
 
-                String typeId = "unknown";
-                if (portalDataType == null) {
-                this.logger.error("*cris* Registering IDataExporter for '{}' - {}", new Object[]{typeId, dataExporter});
-                } else {
-                typeId = portalDataType.getTypeId();
-
-                this.logger.error("*cris* Registering IDataExporter for '{}' - {}",
+                this.logger.debug("Registering IDataExporter for '{}' - {}",
                         new Object[]{typeId, dataExporter});
                 final IDataExporter<Object> existing =
                         dataExportersMap.put(typeId, (IDataExporter<Object>) dataExporter);
@@ -296,7 +291,6 @@ public class JaxbPortalDataHandlerService implements IPortalDataHandlerService {
                 }
 
                 portalDataTypes.add(portalDataType);
-} // cris
 
             } catch (Exception exception) {
                 logger.error("Failed to register data exporter {}.", dataExporter, exception);

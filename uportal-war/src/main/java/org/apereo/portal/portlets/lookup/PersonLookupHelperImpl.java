@@ -311,7 +311,6 @@ public class PersonLookupHelperImpl implements IPersonLookupHelper {
      * the requestAttributes in the RequestContextHolder set for each thread from the caller.
      */
     private class GetVisiblePerson implements Callable<IPersonAttributes> {
-        protected final Logger mylog = LoggerFactory.getLogger(getClass());
         private IAuthorizationPrincipal principal;
         private IPersonAttributes person;
         private Set<String> permittedAttributes;
@@ -334,7 +333,6 @@ public class PersonLookupHelperImpl implements IPersonLookupHelper {
          */
         @Override
         public IPersonAttributes call() throws Exception {
-            mylog.error("*cris* person setting request Attributes: " + requestAttributes);
             RequestContextHolder.setRequestAttributes(requestAttributes);
             return getVisiblePerson(principal, person, permittedAttributes);
         }
